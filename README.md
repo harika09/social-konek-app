@@ -1,3 +1,3 @@
 # social-konek-app
 
-(public/img/konek-preview.png)
+![Design preview for the Loopstudios landing page coding challenge](/public/img/konek-preview.png)
