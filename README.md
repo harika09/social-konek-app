@@ -1,3 +1,3 @@
 # social-konek-app
 
-(/public/img/konek-preview.png)
+(public/img/konek-preview.png)
