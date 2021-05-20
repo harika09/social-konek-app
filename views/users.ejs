@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+
+<div class="list-of-user-container">
+    <div class="list-of-user-content bd-container">
+
+        <% users.forEach((user)=>{ %>
+            <div class="list-user-info">
+                <a href="/profile/<%=user._id%>"><img class="list-user-avatar" src="<%=user.avatar%>" alt="<%= user.username %>" onerror="this.src = '/img/user.png'"></a>
+                <a href="/profile/<%=user._id%>"><%= user.username %></a>
+            </div>
+
+        <% }) %>
+
+    </div>
+</div>
+
+<%- include('partials/footer') %>

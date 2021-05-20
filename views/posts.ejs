@@ -1,0 +1,130 @@
+<%- include('partials/header') %>
+    
+      
+    <section class="post-container">
+        <div class="post-content bd-container">
+            
+         
+               <div class="user-post-card">
+                    <div class="top-post-container">
+                       
+                        <div class="user">
+
+                            <div class="left-icon">
+                                <div class="user-avatar">
+                                    <img src="<%= avatar %>" class="user-img lozad" alt="profile-pic" onerror="this.src = '/img/user.png'">
+                                </div>
+                                <div class="name">
+                                    <a href="/profile/<%= userId %>" class="username"><%= username %></a>
+                                    <p class="posted-time"><%= moment(createdAt).fromNow(); %></p>
+                                </div>
+                            </div>
+
+                            <% if(userId === userID) { %>
+                                <div class="right-icon">
+                                    <button onclick="showAction('<%= postId %>')" class="post-action"><img src="/img/more.png" alt="more"></button>
+                                </div>
+                            <%} %>
+
+                        </div>
+
+                    <!-- Post Action -->
+                        <div class="post-action-container"  >
+                            <div class="post-action-content" id="<%= postId %>">
+                                <ul class="action">
+                                    <li><i class='bx bxs-edit'></i><button class="btnEdit"><a href="/editPost/<%= postId %>">Edit</a></button></button></li>
+                                    <li><i class='bx bx-trash'></i><button class="btnDelete"  onclick="deletePost('<%= postId %>')">Delete</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    <!-- Post Action END -->
+
+                    <img class="lozad" src="<%=img%>" alt="image">
+                        <div class="user-post-content">
+                            <h3><%= title %></h3>
+                            <p><%= content %></p>
+                        </div>
+
+                        <div class="likes-container" id="likes-container">
+
+                                <div class="likes-count">
+
+                                    <div class="likes-btn">
+
+                                        <% if(like) { %>
+                                            <button class="btn-likes-active" value="<%= postId %>"><i class='bx bxs-heart-circle' style='color:#e71c1c'></i></button>
+                                        <%} else{ %>
+                                            
+                                            <button class="btn-likes" value="<%= postId %>"><i class='bx bxs-heart-circle'></i></button>
+                                        <%}%>
+
+                                            
+                                        <% if( likeCount.length <= 1 ){ %>
+                                            <span class="total-likes"><%= likeCount.length %> Like</span>
+                                        <% } else{ %>
+                                            <span class="total-likes"><%= likeCount.length %> Likes</span>
+                                        <% } %>
+
+                                    </div>
+
+                                    <div class="comment-count">
+                                        <% if( postCount.length == 0) { %>
+                                            <span>No Comment</span>
+                                        <% } else if ( postCount.length == 1){ %>
+                                            <span class="total-comment">Comment <%= postCount.length %></span>
+                                        <% } else{ %>
+                                            <span class="total-comment">Comments <%= postCount.length %></span>
+                                       <% } %>
+                                    </div>
+
+                             </div>                            
+                        </div>
+
+                        <div class="line">
+                            <hr>
+                        </div>
+
+                        <form id='formComment'>
+                            <input type="text" name="comment" id="comment" placeholder="Add Comments Here">
+                            <input type="hidden" id="postID" value="<%= postId %>">
+                            <input type="submit" name="comment-btn" id="comment-btn" value="Post Comment">
+                        </form>
+
+                        <div class="comments-container">
+                     
+                            <div  class="comment-content">
+
+                                <% comment.reverse().forEach(function(comment){ %>
+                                    <div class="comment-user-info">
+                                        <div class="comment-user-img">
+                                            <a href="/profile/<%=userID %>"><img src="<%= comment.avatar %>" class="user-img" alt="user-profile" onerror="this.src = '/img/user.png'"></a>
+                                       </div>
+                                      <div class="comment-user-text">
+                                        <a href="/profile/<%= comment.userId %>"><%= comment.username %></a>
+                                        <% if(userId == userID){ %>
+                                            <button onclick="deleteComment('<%= comment._id %>')" class="delete-comment">&times;</button>    
+                                        <% } else if(comment.userId == userID) { %>
+                                            <button onclick="deleteComment('<%= comment._id %>')" class="delete-comment">&times;</button>
+                                        <% } %>
+                                       
+                                        <p><%=comment.comment%></p>
+                                        <span class="comment-timestamp"><%= moment(comment.createdAt).fromNow(); %></span>
+                                      </div>
+                                    </div>
+
+                                <% })%>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+               </div>
+
+              
+          
+
+        </div>
+    </section>
+
+
+ <%- include('partials/footer') %>

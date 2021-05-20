@@ -1,0 +1,34 @@
+.main-content{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main-content .dashboard-img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 450px;
+}
+
+.dashboard-login{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-login a{
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 10px; 
+    background-color: #02475e;  
+    padding: 10px 40px; 
+    border-radius: 10px;
+}
+
+.dashboard-login a:hover{
+    opacity: 0.8;
+}

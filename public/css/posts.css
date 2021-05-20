@@ -1,0 +1,164 @@
+.top-post-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+}
+
+.user-post-content{
+    padding:15px;
+}
+
+.user-post-card{
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 5%);
+    border-radius: 2px;
+    position: relative;
+}
+
+.user-post-content h3{
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.user-post-content p{
+    font-size: 1rem;
+}
+
+.left-icon{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.right-icon button{
+    margin-top: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.right-icon button:focus{
+    outline: none;
+    border: none;
+}
+
+.right-icon img{
+    width: 25px;
+    cursor: pointer;
+}
+
+.post-action-content{
+    width: 20%;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 5%);
+    border-radius: 2px;
+    position: absolute;
+    float: right;
+    right: 0;
+    top: 50px;
+    display: none;
+    border-radius: 2px;   
+    
+}
+
+.post-action-content li button{
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.post-action-content li {
+    margin-bottom: 5px;
+}
+
+.post-action-content li i{
+    font-size: 0.9rem;
+    padding: 2px;
+}
+
+.post-action-content li i button{
+    margin-left: 10px;
+}
+
+.post-action-content li i a:hover, .post-action-content li i button:hover{
+    color: #2f5d62;
+}
+
+.post-action-content.active{
+    display: block;
+}
+
+/* Likes */
+.user-post-likes{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.user-post-likes i{
+    margin-top: 5px;
+    font-size: 1.5rem;
+}
+
+.likes-count{
+    padding: 0 10px;
+}
+
+.likes-count span{
+    display: block;
+    font-size: 0.9rem;
+}
+
+.btn-likes{
+    color: green;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 2.5rem;
+    cursor: pointer;
+  
+}
+
+.btn-likes-active{
+    display: block;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+/* Post Likes */
+.likes-count{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.2rem;
+}
+.likes-count span{
+    display: block;
+    font-size: 0.8rem;
+}
+
+.likes-btn{
+    display: flex;
+    align-items: center;
+}
+
+.likes-btn button:focus{
+    outline: none;
+    border: none;
+}
+

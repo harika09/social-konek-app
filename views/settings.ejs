@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+    <section class="user-profile-container">
+        <div class="user-profile-content bd-container">
+            <!--<h2 id="user"><%= user.username %></h2>-->
+
+            <%- include('partials/errorMessage') %>
+
+           <div class="user-img">
+                <img class="user-avatar" id="useravatar" src="<%=user.avatar %>" alt="user-avatar" onerror="this.src = '/img/user.png'">
+           </div>
+
+            <form action="/update" method="POST" enctype="multipart/form-data"><!--action="/update" method="POST"--> 
+               
+                <input type="file" id="upload" oninput="useravatar.src=window.URL.createObjectURL(this.files[0])"  name="image" class="edit-avatar" value="<%= user.avatar %>" hidden/>
+                <label for="upload"><i class='bx bxs-pencil edit-avatar'></i></label>
+                <input type="text" name="firstname" id="firstname" value="<%= user.firstname %>"></i>
+                <input type="text" name="lastname" id="lastname" value="<%= user.lastname %>">
+                <input type="text" name="username" id="username" maxlength="20" value="<%= user.username %>">
+                <input type="email" name="email" id="email" disabled value="<%= user.email %>">
+                <input type="hidden" name="userId" id="userId"  value="<%=user._id %>">
+                <input type="hidden" name="name" id="name" value="<%= user.username %>">
+                <input type="submit" name="submit" id="update-btn" value="Update">
+
+            </form>
+        </div>
+    </section>
+
+
+
+<%- include('partials/footer') %>

@@ -1,0 +1,73 @@
+<%- include('partials/header') %>
+  
+<div class="profile-container">
+    <div class="profile-content bd-container">
+
+        <!-- TOP USER PROFILE -->
+        <div class="profile-top">
+
+            <div class="profile-top-user-avatar">
+                <img src="<%= user.avatar %>" alt="<%=user.username%>" onerror="this.src = '/img/user.png'">
+            </div>
+
+            <div class="profile-top-user-info">
+
+                <div class="profile-top-user-username">
+                    <h3><%=user.username%></h3>
+                    <% if(userID == user._id){ %>
+                        <button class="btn-settings"><a href="/settings">Edit Profile</a></button>
+                    <% } %>
+                </div>
+
+                <div class="profile-top-user-post">
+                    <div class="top-user-post">
+                        <span><%=user.post.length%> Post</span>
+                    </div>
+
+                    <div class="top-user-likes">
+                        <span><%=user.likes.length%> Likes</span>
+                    </div>
+
+                    <div class="top-user-comments">
+                        <span><%= user.comments.length%> Comments</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TOP USER PROFILE END -->
+
+        <div class="profile-post-line">
+            <hr>
+            <span><i class='bx bx-category'></i> POSTS</span>
+        </div>
+
+
+        <div class="profile-post-container">
+            <%if(posts.length === 0){%>
+                <p>No Post</p>
+            <%} else{ %>
+
+                <% posts.reverse().forEach(function(post) { %>
+
+                    <div class="profile-post-card">
+                        <div class="top-post-card" onclick="document.location='/post/<%=post._id%>'">
+                            <img src="<%= post.img %>" alt="post-image" class="post-image">
+                            <div class="post-overlay">
+                                <a href="/post/<%=post._id %>"><i class='bx bxs-heart-circle'></i><span><%= post.likes.length %></span></a>
+                                <a href="/post/<%= post.id %>"><i class='bx bx-comment'></i><span><%=post.comments.length %></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                <% }) %>
+            <% } %>
+        </div>
+
+    </div>
+</div>
+
+
+<%- include('partials/footer') %>

@@ -1,0 +1,150 @@
+.profile-container{
+    padding-top: 90px;
+}
+/* PROFILE TOP */
+.profile-top{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto auto;
+}
+
+
+.profile-top img{
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    cursor: pointer;
+    float: right;
+
+}
+
+.profile-top-user-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.profile-top-user-info .profile-top-user-username{
+    display: flex;
+}
+
+.profile-top-user-username button{
+    padding: 7px;
+    background: transparent;
+    border: 1px solid rgba(var(--ca6,219,219,219),1);
+    outline: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.profile-top-user-info .profile-top-user-username h3{
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.profile-top-user-post{
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+/* PROFILE TOP END */
+.profile-post-line{
+    margin-top: 20px;
+}
+.profile-post-line span{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+hr{
+    padding: 0.5px;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/* Post Card */
+
+.profile-post-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+}
+
+.profile-post-container .profile-post-card{
+    display: block;
+    margin: 0 auto;
+    padding:  10px;
+}
+
+.post-image{
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.top-post-card{
+    position: relative;
+}
+
+.post-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    opacity: 0;
+    text-align: center;
+    padding-top: 100px;
+    cursor: pointer;
+}
+
+.post-overlay i{
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+
+.top-post-card:hover .post-overlay{
+    opacity: 1;
+}
+
+
+@media screen and (max-width: 600px) {
+    .profile-top{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: auto;
+    }
+
+    .profile-post-container{
+        grid-template-columns: 1fr;
+    }
+
+    .profile-top img{
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+        max-width: 150px;
+        float: none;
+    }
+    .profile-top-user-info{
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .post-image{
+        max-width: 100%;
+        height: auto;   
+    }
+    
+}

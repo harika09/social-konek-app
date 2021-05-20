@@ -1,0 +1,266 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Roboto', sans-serif;
+}
+
+:root{
+    /* Fonts */
+    --Open-Sans:'Open Sans', sans-serif;
+}
+
+:root{
+    /* Color */
+    --black: #000000;
+    --white: #fff;
+    --default: #2f5d62;
+    --nav-menu-hover: #2f5d62;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+.bd-container{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: 1240px;
+}
+
+@media screen and (min-width: 1240px){
+    .bd-container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Header Container */
+
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.header-container .logo{
+    width: 75px;
+}
+
+.sticky{
+    position: relative;
+}
+
+.header-container{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: 0.5s;
+   
+}
+
+.header-container.stick{
+    background-color: var(--white);
+    box-shadow: 0 5px 5px rgba(0 0 0 / 2.5%);
+}
+
+.nav-menu{
+    display: flex;
+}
+
+.nav-menu li{
+    margin-left: 40px;
+}
+
+.nav-menu li a:hover{
+    color: var(--nav-menu-hover);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.user-profile{
+    position: absolute;
+    display: flex;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
+    display: none;
+    width: 180px;
+    padding: 15px 20px;
+    top: 70px;
+    right: 0;
+}
+
+.user-profile.active{
+    display: block;
+}
+
+.user-profile i{
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.user-profile i a{
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+
+.user-profile::before{
+    content: "";
+	position: absolute;
+	top: -20px;
+	right: 20px;
+	border: 10px solid;
+	border-color: transparent transparent var(--default) transparent;
+}
+
+.user-profile a:hover{
+    color: var(--default);
+}
+
+.mobile{
+    display: none;
+}
+
+/* Header Container END */
+
+.login-form-wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.login-form-wrapper a{
+    text-decoration: none;
+    color: #1eae98;
+}
+
+input[type=email], input[type=password], input[type=submit], input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input[type=submit]{
+    color: var(--white);
+    cursor: pointer;
+    background: transparent;
+    background: #165050;
+}
+
+
+.login-image img{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 550px;
+}
+
+.new-user{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #1eae98;
+}
+
+.new-user .forgot-password a:hover, .register a:hover{
+    color: var(--orange);
+}
+
+
+
+@media screen and (max-width: 900px){
+    
+    .header-container{
+        padding: 5px 5px;
+    }
+
+    .nav-menu, .user-profile.active, .profile{
+        display: none;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    header .nav-menu.active{
+        width: 100%;
+        height: 400px;
+        position: fixed;
+        top: 78px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        /*left: 10%; */
+        justify-content: center;
+        align-items: center;
+        background-color: var(--white);
+        border-radius: 4px;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+     
+    }
+
+    .nav-menu li{
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+
+    .nav-menu li a{
+        color: var(--black);
+        font-size: 1.5rem;
+    }
+
+    .menu-toggle{
+        display: block;
+        position: relative;
+        width: 50px;
+        height: 20px;
+        background: url(/img/icon-hamburger.svg) no-repeat center;
+        background-size: 30px;
+        cursor: pointer;
+    }
+
+    .menu-toggle.active{
+        background: url(/img/icon-close.svg) no-repeat center;
+        background-size: 30px;
+    }
+
+    .login-form-wrapper{
+        grid-template-columns: 1fr;
+    }
+    .login-image img{
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 400px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .login-form-wrapper{
+        padding: 0 1rem;
+    }
+
+   
+}
+

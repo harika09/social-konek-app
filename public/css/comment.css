@@ -1,0 +1,65 @@
+.comments-container{
+    padding: 10px;
+}
+
+.comment-user-img img{
+    margin-top: 5px;
+    width: 100%;
+    max-width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    cursor: pointer;
+}
+
+.comment-content .comment-user-info{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 5%);
+    border-radius: 4px;
+}
+
+.comment-user-text{
+    width: 100%;
+}
+
+.comment-content .comment-user-text a, p{
+    font-size: 0.8rem;
+}
+
+.comment-content .comment-user-text a:hover{
+    text-decoration: underline;
+}
+
+.comment-content .comment-user-info .comment-timestamp{
+    display: block;
+    font-size: 0.6rem;
+}
+
+/* comments */
+#comment-btn{
+    padding: 10px;
+    width: 30%;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+#formComment{
+    padding: 10px 20px;
+    font-size: 0.8rem;
+}
+
+.delete-comment{
+    display: block;
+    float: right;
+    cursor: pointer;
+}
+
+.delete-comment:focus{
+    border: none;
+    outline: none;
+}

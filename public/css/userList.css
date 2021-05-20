@@ -1,0 +1,25 @@
+.list-of-user-container{
+    padding-top: 90px;
+}
+
+
+.list-of-user-content{
+    display: flex;
+    flex-wrap: wrap; 
+    text-align: center;  
+}
+
+.list-user-info{
+    margin: 1rem auto;
+}
+
+.list-user-avatar{
+    width: 100%;
+    max-width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
