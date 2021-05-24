@@ -46,7 +46,7 @@ function emptyField(){
 
 
 /* Likes Here */
-function myFunction(x, userId) {
+function likeFunction(x, userId) {
 
     if(x.classList.contains('far')){
         x.classList.remove('far');
@@ -79,7 +79,6 @@ function myFunction(x, userId) {
 
 function saveLikes(ID){
    //let count = $('.count')
-   let Id = 
     
     fetch( `/likes/${ID}`, {
         method: "POST",
@@ -100,8 +99,6 @@ function saveLikes(ID){
 // })
 
 function unLike(ID){
-
-    let postID = $(`#${ID}`)
 
     fetch( `/unlike/${ID}`, {
         method: "POST",

@@ -21,15 +21,28 @@
 
                 <div class="profile-top-user-post">
                     <div class="top-user-post">
+                        <% if(user.post.length <=1 ){ %>
                         <span><%=user.post.length%> Post</span>
+                        <%}else{ %>
+                        <span><%=user.post.length%> Posts</span>
+                        <%} %>
                     </div>
 
                     <div class="top-user-likes">
-                        <span><%=user.likes.length%> Likes</span>
+                        <% if(user.likes.length <= 1){ %>
+                            <span><%=user.likes.length%> Like</span>
+                        <% } else{ %>
+                            <span><%=user.likes.length%> Likes</span>
+                        <% } %>
                     </div>
 
                     <div class="top-user-comments">
-                        <span><%= user.comments.length%> Comments</span>
+                        <% if(user.comments.length <= 1){ %>
+                            <span><%= user.comments.length%> Comment</span>
+                        <% }else{ %>
+                            <span><%= user.comments.length%> Comments</span>
+                        <% }  %>
+                        
                     </div>
                 </div>
 

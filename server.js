@@ -141,7 +141,7 @@ app.get('/index', (req, res)=>{
                 res.send(err)
             }else{
                 res.render('index', {posts: post, userID: userID})  
-                }
+            }
 
         }) 
                         

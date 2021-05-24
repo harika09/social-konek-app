@@ -77,9 +77,9 @@
                                         <% if( postCount.length == 0) { %>
                                             <span>No Comment</span>
                                         <% } else if ( postCount.length == 1){ %>
-                                            <span class="total-comment">Comment <%= postCount.length %></span>
+                                            <span class="total-comment">Total comment <%= postCount.length %></span>
                                         <% } else{ %>
-                                            <span class="total-comment">Comments <%= postCount.length %></span>
+                                            <span class="total-comment">Total comments <%= postCount.length %></span>
                                        <% } %>
                                     </div>
 
@@ -91,7 +91,7 @@
                         </div>
 
                         <form id='formComment'>
-                            <input type="text" name="comment" id="comment" placeholder="Add Comments Here">
+                            <input type="text" name="comment" id="comment" placeholder="Add a comment...">
                             <input type="hidden" id="postID" value="<%= postId %>">
                             <input type="submit" name="comment-btn" id="comment-btn" value="Post Comment">
                         </form>

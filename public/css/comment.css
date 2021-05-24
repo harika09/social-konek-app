@@ -4,7 +4,7 @@
 
 .comment-user-img .user-img{
     width: 100%;
-    max-width: 50px;
+    max-width: 55px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
@@ -46,7 +46,6 @@
 /* comments */
 #comment-btn{
     padding: 10px;
-    width: 30%;
     font-size: 0.7rem;
     font-weight: bold;
 }
@@ -66,3 +65,5 @@
     border: none;
     outline: none;
 }
+
+
