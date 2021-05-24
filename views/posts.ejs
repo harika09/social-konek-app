@@ -12,7 +12,7 @@
 
                             <div class="left-icon">
                                 <div class="user-avatar">
-                                    <img src="<%= avatar %>" class="user-img lozad" alt="profile-pic" onerror="this.src = '/img/user.png'">
+                                    <a href="/profile/<%=userID %>"><img src="<%= avatar %>" class="user-img lozad" alt="profile-pic" onerror="this.src = '/img/user.png'"></a>
                                 </div>
                                 <div class="name">
                                     <a href="/profile/<%= userId %>" class="username"><%= username %></a>
@@ -50,19 +50,25 @@
                                 <div class="likes-count">
 
                                     <div class="likes-btn">
-
+                                        <% if(like){ %>
+                                            <i onclick="myFunction(this, '<%= postId %>')" class="fas bx bxs-heart-circle" style='color:#e71c1c'></i>
+                                        <% } else{ %>
+                                            <i onclick="myFunction(this, '<%= postId %>')" class="far bx bxs-heart-circle" style="color: #006400;"></i>
+                                        <% } %>
+                                        <!--
                                         <% if(like) { %>
-                                            <button class="btn-likes-active" value="<%= postId %>"><i class='bx bxs-heart-circle' style='color:#e71c1c'></i></button>
+                                            <button class="btn-likes-active" value="<%= postId %>"><i class=' bxs-heart-circle' style='color:#e71c1c'></i></button>
                                         <%} else{ %>
-                                            
-                                            <button class="btn-likes" value="<%= postId %>"><i class='bx bxs-heart-circle'></i></button>
+                                            <button class="btn-likes" value="<%= postId %>"><i class='bx bxs-heart-circle' style="color: #006400;"></i></button>
                                         <%}%>
+
+                                        -->
 
                                             
                                         <% if( likeCount.length <= 1 ){ %>
-                                            <span class="total-likes"><%= likeCount.length %> Like</span>
+                                            <span class="total-likes" id="<%= postId %>Like" value="<%= likeCount.length %>"><%= likeCount.length %></span> <p>Like</p>
                                         <% } else{ %>
-                                            <span class="total-likes"><%= likeCount.length %> Likes</span>
+                                            <span class="total-likes" id="<%= postId%>Like" value="<%= likeCount.length %>"><%= likeCount.length %></span> <p>Likes</p>
                                         <% } %>
 
                                     </div>

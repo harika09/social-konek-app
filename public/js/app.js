@@ -1,7 +1,5 @@
 /*$('#submit').click(function(e){
     e.preventDefault
-   
- 
 
      const title = $('#title').val()
      const content = $('#content').val()
@@ -48,37 +46,70 @@ function emptyField(){
 
 
 /* Likes Here */
-$('.btn-likes').click(function(e){
-    const userId = $('.btn-likes').val()
-    saveLikes(userId)
-    $("#likes-container").load(window.location.href + " #likes-container" );
-})
+function myFunction(x, userId) {
+
+    if(x.classList.contains('far')){
+        x.classList.remove('far');
+        x.classList.add('fas')
+        x.style.color = '#e71c1c'
+       saveLikes(userId)
+       
+    }else if(x.classList.contains('fas')){
+        x.classList.remove('fas')
+        x.classList.add('far')
+        unLike(userId)
+        x.style.color = '#006400'
+      
+    }else{
+        x.classList.remove('fas')
+        x.classList.add('far')
+        unLike(userId)
+        
+    }
+
+ }
+
+
+// $('.btn-likes').click(function(e){
+//     //e.preventDefault()
+//     const userId = $('.btn-likes').val()
+//     saveLikes(userId)
+//     $("#likes-container").load(window.location.href + " #likes-container" );
+// })
 
 function saveLikes(ID){
+   //let count = $('.count')
+   let Id = 
+    
     fetch( `/likes/${ID}`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         data: JSON.stringify({userId: ID})
-    })
-    window.location.href=window.location.href;
+    }).then(response => response.json())
+    .then(data => document.getElementById(ID+"Like").innerHTML = data)
+    //window.location.href=window.location.href;
     
 }
 
-$('.btn-likes-active').click(function(e){
-    e.preventDefault()
+// $('.btn-likes-active').click(function(e){
+//     //e.preventDefault()
 
-    const userId = $('.btn-likes-active').val()
-    unLike(userId)
-    $("#likes-container").load(window.location.href + " #likes-container" );
-})
+//     const userId = $('.btn-likes-active').val()
+//     unLike(userId)
+//     $("#likes-container").load(window.location.href + " #likes-container" );
+// })
 
 function unLike(ID){
+
+    let postID = $(`#${ID}`)
+
     fetch( `/unlike/${ID}`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         data: JSON.stringify({userId: ID})
-    })
-    window.location.href=window.location.href;
+    }).then(response => response.json())
+    .then(data => document.getElementById(ID+"Like").innerHTML = data)
+    //window.location.href=window.location.href;
 }
 /* END Likes */
 
@@ -203,11 +234,3 @@ $('.close-edit').click(function(){
 })
 
 
-function myFunction(x) {
-    if(x.classList.toggle("fa-thumbs-down")){
-        alert('like')
-      }else{
-          alert('unlike')
-          $('.lik').css('color','black')
-      }
-  }

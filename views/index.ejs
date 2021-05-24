@@ -1,5 +1,4 @@
 <%- include('partials/header') %>
-    
       
     <section class="post-container">
         <div class="post-content bd-container">
@@ -56,17 +55,27 @@
                             <div class="bottom-wrapper">
                                 
                                 <div class="more-btn">
-                                    <a href="/post/<%= post._id %>" class="read-more">Read MORE</a>
+                                   
+                                    <%if(post.likes.includes(userID)){ %>
+                                        <i onclick="myFunction(this, '<%= post._id %>')" class="fas bx bxs-heart-circle" style='color:#e71c1c'></i>
+                                    <%}else{%>
+                                        <i onclick="myFunction(this, '<%= post._id %>')" class="far bx bxs-heart-circle" style="color: #006400;"></i>
+                                    <%}%>
+
+                                
+                                    <% if(post.likes.length <= 1){ %>
+                                        <!-- Added "Like" on the end of post_id to verify that the user pressed the like button and not the action button with edit and delete -->
+                                        <span class="total-likes" id="<%= post._id %>Like"><%= post.likes.length %> </span> <p class="like-text">Like</p>
+                                    <% }else{ %>
+                                        <span class="total-likes" id="<%= post._id %>Like"><%= post.likes.length %> </span> <p  class="like-text">Likes</p>
+                                    <%  } %>
+                                  <!--   <a href="/post/<%= post._id %>" class="read-more">Read MORE</a>
+                                    <i onclick="myFunction(this, '<%= post._id %>')" class="far fa-heart" style="color: #006400;"></i> -->
                                 </div>
 
                                 <div class="user-post-likes">
                                    <!-- <i onclick="myFunction(this)" class="fa fa-thumbs-up lik"></i> -->
-                                    <i class='bx bxs-heart-circle' style='color:#e71c1c'></i>
-                                    <% if(post.likes.length <= 1){ %>
-                                        <span><%= post.likes.length %> Like </span>
-                                    <% }else{ %>
-                                        <span><%= post.likes.length %> Likes </span>
-                                    <%  } %>
+                                    
                                     <% if( post.comments.length == 0) { %>
                                     <span>No Comment</span>
                                     <% } else if ( post.comments.length == 1){ %>

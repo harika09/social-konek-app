@@ -135,16 +135,16 @@ const Upload = multer({
 app.get('/index', (req, res)=>{
     if(req.isAuthenticated()){
         const userID = req.user.id
-        
+            
         Post.find({}, function(err, post){
             if(err){
                 res.send(err)
             }else{
-                 
-                res.render('index', {posts: post, userID: userID})
-            }
-        })
-        
+                res.render('index', {posts: post, userID: userID})  
+                }
+
+        }) 
+                        
     }else{
         res.redirect('/')
     }
@@ -208,9 +208,6 @@ app.post('/post', urlencodedParser, (req, res)=>{
             }
         }
     })
-
-  
-    
    }else{
        res.redirect('/login')
    }
@@ -271,6 +268,7 @@ app.get('/post/:postId', (req, res)=>{
     }
 })
 
+
 app.post('/likes/:userId', urlencodedParser, (req, res)=>{
     if(req.isAuthenticated()){
         const postID = req.params.userId
@@ -284,6 +282,14 @@ app.post('/likes/:userId', urlencodedParser, (req, res)=>{
                 Post.updateOne({_id: postID}, {$push:{likes: userID}}, function(err){
                     if(err){
                         res.send(err)
+                    }else{
+                       Post.findOne({_id: postID}, function(err, data){
+                           if(err){
+                               res.send(err)
+                           }else{
+                               res.json(data.likes.length)
+                           }
+                       })
                     }
                 })
             }
@@ -305,7 +311,15 @@ app.post('/unlike/:userId', urlencodedParser, (req, res)=>{
                 Post.updateOne({_id: postID}, {$pull:{likes: userID}}, function(err){
                     if(err){
                         res.send(err)
-                    }
+                    }else{
+                        Post.findOne({_id: postID}, function(err, data){
+                            if(err){
+                                res.send(err)
+                            }else{
+                                res.json(data.likes.length)
+                            }
+                        })
+                     }
                 })
             }
         })
@@ -715,7 +729,7 @@ app.get('/register', (req, res)=>{
 
 app.post('/register', urlencodedParser,(req, res)=>{
     const { username, email, password, firstname, lastname} =  req.body
-    const image = 'user-image'
+    const image = 'https://img.favpng.com/25/15/22/computer-icons-user-profile-icon-design-png-favpng-0VbLzJjbKEpnLF68K4UituW9P.jpg'
     const imagekey = 'aws-s3-key'
 
 

@@ -134,6 +134,29 @@ a{
 
 /* Header Container END */
 
+.btn-like, .btn-like:focus {
+    outline: none;
+    border: none;
+}
+
+.more-btn{
+    display: flex;
+
+    align-items: center;
+}
+.more-btn i {
+    font-size: 2.5rem;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.more-btn .total-likes, .more-btn .like-text{
+    font-size: 0.8rem;
+    text-align: center;
+  
+}
+
+
 .login-form-wrapper{
     min-height: 100vh;
     display: flex;

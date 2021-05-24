@@ -135,22 +135,6 @@
     padding: 2px;
 }
 
- .read-more{
-    display: block;
-    margin-top: 10px;
-    background-color: teal;
-    padding: 5px 15px;
-    border-radius: 4px;
-    color: white;
-    text-align: center;
-    box-shadow:4px 4px 0px rgba(33,33,33,0.45);
-    font-size: 0.8rem;
-}
-
-.read-more:hover{
-    opacity: 0.8;
-}
-
 .user-post-likes span{
     display: block;
     margin-top: 8px;
@@ -163,30 +147,6 @@
     margin-right: 10px;
     margin-left: 5px;
 }
-
-/* Floating Button 
-.floating-btn{
-    left: 80%;
-    position: fixed;
-    text-align: center;
-    bottom: 0;
-    width: 100%;
-    z-index: 12;
-    width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-    background-color:#0C9;
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-}
-
-.float i{
-	margin-top:15px;
-    font-size: 2rem;
-
-}*/
 
 .error-page{
     display: flex;
