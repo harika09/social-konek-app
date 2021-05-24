@@ -137,8 +137,8 @@
 
 .user-post-likes span{
     display: block;
-    margin-top: 8px;
     font-size: 0.8rem;
+    margin-bottom: 5px;
 }
 
 .user-post-likes p{
@@ -169,10 +169,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .read-more{
-     font-size: 0.7rem;
-   }
-
+    
    .error-page{
        font-size: 1.5rem;
    }

@@ -51,9 +51,9 @@
 
                                     <div class="likes-btn">
                                         <% if(like){ %>
-                                            <i onclick="myFunction(this, '<%= postId %>')" class="fas bx bxs-heart-circle" style='color:#e71c1c'></i>
+                                            <i onclick="likeFunction(this, '<%= postId %>')" class="fas bx bxs-heart-circle" style='color:#e71c1c'></i>
                                         <% } else{ %>
-                                            <i onclick="myFunction(this, '<%= postId %>')" class="far bx bxs-heart-circle" style="color: #006400;"></i>
+                                            <i onclick="likeFunction(this, '<%= postId %>')" class="far bx bxs-heart-circle" style="color: #006400;"></i>
                                         <% } %>
                                         <!--
                                         <% if(like) { %>

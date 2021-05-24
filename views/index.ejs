@@ -57,9 +57,9 @@
                                 <div class="more-btn">
                                    
                                     <%if(post.likes.includes(userID)){ %>
-                                        <i onclick="myFunction(this, '<%= post._id %>')" class="fas bx bxs-heart-circle" style='color:#e71c1c'></i>
+                                        <i onclick="likeFunction(this, '<%= post._id %>')" class="fas bx bxs-heart-circle" style='color:#e71c1c'></i>
                                     <%}else{%>
-                                        <i onclick="myFunction(this, '<%= post._id %>')" class="far bx bxs-heart-circle" style="color: #006400;"></i>
+                                        <i onclick="likeFunction(this, '<%= post._id %>')" class="far bx bxs-heart-circle" style="color: #006400;"></i>
                                     <%}%>
 
                                 
