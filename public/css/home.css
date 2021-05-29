@@ -18,6 +18,10 @@
     
 }
 
+.user-post-content h4{
+    padding: 5px 0;
+}
+
 .top-post-container{
     display: flex;
     flex-direction: column;
@@ -55,8 +59,9 @@
     font-size: 0.7rem;
 }
 
-.user-post-content span{
-    font-size: 1.2rem;
+.user-post-comment span{
+    font-size: 0.8rem;
+    margin-bottom: 10px;
 }
 
 .left-icon{

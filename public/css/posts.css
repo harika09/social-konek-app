@@ -99,17 +99,16 @@
 }
 
 /* Likes */
-.user-post-likes{
+.user-post-comment{
     display: flex;
     flex-direction: row;
     gap: 5px;
-    margin-top: 10px;
 }
 
-.user-post-likes i{
+/* .user-post-likes i{
     margin-top: 5px;
     font-size: 1.5rem;
-}
+} */
 
 .likes-count{
     padding: 0 10px;
