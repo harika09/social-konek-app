@@ -4,27 +4,34 @@ const passportLocalMongoose = require('passport-local-mongoose');
 //Register Schema
 const registerSChema = new mongoose.Schema({
     avatar:{
-        type: String
+        type: String,
+        required: true
     },
     avatarKey:{
-        type: String
+        type: String,
+        required: true
     },
     firstname:{
-        type: String
+        type: String,
+        required: true
     },
     lastname:{
-        type: String
+        type: String,
+        required: true
     },
     username:{
-        type: String
+        type: String,
+        required: true
         
     },
     email: {
-        type: String
+        type: String,
+        required: true
      
     },
     password: {
-        type: String
+        type: String,
+        required: true
         
     },
     createdAt: {type: Date, default: Date.now},

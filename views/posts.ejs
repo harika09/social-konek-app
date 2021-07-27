@@ -55,15 +55,7 @@
                                         <% } else{ %>
                                             <i onclick="likeFunction(this, '<%= postId %>')" class="far bx bxs-heart-circle" style="color: #006400;"></i>
                                         <% } %>
-                                        <!--
-                                        <% if(like) { %>
-                                            <button class="btn-likes-active" value="<%= postId %>"><i class=' bxs-heart-circle' style='color:#e71c1c'></i></button>
-                                        <%} else{ %>
-                                            <button class="btn-likes" value="<%= postId %>"><i class='bx bxs-heart-circle' style="color: #006400;"></i></button>
-                                        <%}%>
-
-                                        -->
-
+      
                                             
                                         <% if( likeCount.length <= 1 ){ %>
                                             <span class="total-likes" id="<%= postId %>Like" value="<%= likeCount.length %>"><%= likeCount.length %></span> <p>Like</p>
