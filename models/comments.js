@@ -2,26 +2,21 @@ const mongoose = require('mongoose')
 
 const userComments = new mongoose.Schema({
     comment:{
-        type: String,
-        required: true
+        type: String
     },
     userId:{
-        type: String,
-        required: true
+        type: String
     },
     username: {
-        type: String,
-        required: true
+        type: String
     },
     avatar: {
-        type: String,
-        required: true
+        type: String
     },
     postId: {
-        type: String,
-        required: true
+        type: String
     },
-    createdAt: {type: Date, default: Date.now}
+    createdAt: {type: Date, default: Date.now},
     //postID:  [{type: mongoose.Schema.Types.ObjectId, ref: 'Post'}]
 })
 

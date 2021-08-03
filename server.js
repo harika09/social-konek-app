@@ -59,6 +59,7 @@ const s3 = new aws.S3({
 
 //Database Connection
 let db = "";
+/* mongodb+srv://admin-kyaalod:Palaganas09@cluster0.c8rn6.mongodb.net/KoNeKDB */
 /* mongodb://localhost:27017/KoNek */
 /* let url = 'mongodb://localhost:27017/KoNek' */
 
@@ -419,7 +420,7 @@ app.post("/edit/:postId", urlencodedParser, (req, res) => {
   const { title, content } = req.body;
   const requestedPostId = req.params.postId;
 
-  if (!title || !content) {
+  if (!title.trim() || !content.trim()) {
     req.flash("empty", "Fields cannot be empty");
     res.redirect("/editPost/" + requestedPostId);
   } else {
@@ -444,11 +445,10 @@ app.post("/delete", urlencodedParser, (req, res) => {
   /* Deleting the comment that is connected to post Array */
   Post.findOne({ _id: postID }, function (err, data) {
     if (err) {
-      res.send(err);
+      res.sendDate(err);
     } else {
       if (data) {
         const commentID = data.comments;
-
         /* Used forEach to delete list of objects inside array */
         commentID.forEach((id) => {
           User.updateOne(
@@ -483,7 +483,7 @@ app.post("/delete", urlencodedParser, (req, res) => {
             res.send(err);
           } else {
             if (success) {
-              /* Delete Image on AWS key is needed to locate the file */
+              /* Delete Iamge on AWS key is needed to locate the file */
               const deleteParams = {
                 Bucket: bucketName,
                 Key: path,
@@ -493,6 +493,7 @@ app.post("/delete", urlencodedParser, (req, res) => {
                   res.send(err);
                 } else {
                   res.redirect("/index");
+                  console.log("Image deleted" + "" + path);
                 }
               });
               //fs.unlinkSync(path)
@@ -658,7 +659,7 @@ app.post("/update", urlencodedParser, (req, res, next) => {
           userAvatar = avatar;
           avatarKey = req.file.key;
           userAvatarKey = avatarKey;
-          /* Deleting avatar and replace with the new avatar with image key from aws s3*/
+          /* Deleting avatar and replace with the new avatar with image key for aws s3*/
           const deleteParams = {
             Bucket: bucketName,
             Key: avatarKeys,
@@ -674,7 +675,7 @@ app.post("/update", urlencodedParser, (req, res, next) => {
           userAvatarKey = avatarKeys;
         }
 
-        if (!username || !firstname || !lastname) {
+        if (!username.trim() || !firstname.trim() || !lastname.trim()) {
           req.flash("emptyFields", "Fields cannot be empty");
           res.redirect("/settings");
         } else {
@@ -792,7 +793,13 @@ app.post("/register", urlencodedParser, (req, res) => {
 
   let errors = [];
 
-  if (!username || !email || !password || !firstname || !lastname) {
+  if (
+    !username.trim() ||
+    !email.trim() ||
+    !password.trim() ||
+    !firstname.trim() ||
+    !lastname.trim()
+  ) {
     errors.push({ msg: "Please fill in all fields" });
   }
 

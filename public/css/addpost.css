@@ -4,7 +4,7 @@
 }
 
 .add-post-content {
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
   padding: 20px;
   width: 100%;
   max-width: 650px;
@@ -57,4 +57,18 @@
 
 .loading-animation.active {
   display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .loading-animation {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0) url("../img/Spin-1s-200px.gif") 50% 50%
+      no-repeat;
+    background-size: 50%;
+  }
 }

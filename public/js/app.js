@@ -6,6 +6,14 @@ function emptyField() {
   });
 }
 
+function imageError() {
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Image is too large",
+  });
+}
+
 /* Likes Here */
 function likeFunction(x, userId) {
   if (x.classList.contains("far")) {
@@ -51,12 +59,34 @@ function unLike(ID) {
 /* END Likes */
 
 /* Submit post to show loading gif */
-$("#submitPost").click(function () {
-  $(".loading-animation").toggleClass("active");
-});
+$("#submitPost").click(function (e) {
+  e.preventDefault();
 
-$("#update-post").click(function () {
-  $(".loading-animation").toggleClass("active");
+  const title = document.getElementById("post-title").value;
+  const content = document.getElementById("post-content").value;
+  const image = document.getElementById("upload").files[0];
+
+  const formData = new FormData();
+  formData.append("image", image);
+  formData.append("title", title);
+  formData.append("content", content);
+
+  if (!title.trim() || !content.trim() || !image) {
+    emptyField();
+  } else {
+    $(".loading-animation").toggleClass("active");
+    fetch("/post", {
+      method: "POST",
+      body: formData,
+    }).then((response) => {
+      if (response.url === "http://localhost:4000/addPost") {
+        imageError();
+        $(".loading-animation").removeClass("active");
+      } else {
+        window.location.href = response.url;
+      }
+    });
+  }
 });
 
 /* Comments Here */
@@ -72,7 +102,7 @@ function postComment(ID) {
   let postID = ID;
   const comment = $("#comment").val();
 
-  if (comment === "") {
+  if (!comment.trim()) {
     emptyField();
   } else {
     fetch(`/comment/${postID}`, {

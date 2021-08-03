@@ -11,16 +11,16 @@
         </div>
 
         
-
-        <form id="post" action="/post" method="POST" enctype="multipart/form-data" >
+<!-- action="/post" method="POST" enctype="multipart/form-data" -->
+        <form id="post"  >
             <%- include('partials/errorMessage') %>
             <label for="title" class="title">Title</label>
-            <input type="text" name="title" id="title" placeholder="Enter Title">
+            <input type="text" name="title" id="post-title" placeholder="Enter Title">
 
             <label for="content" class="post-contents">Content</label>
-            <textarea name="content" class="add-content" placeholder="Enter Content" ></textarea>
+            <textarea name="content" id="post-content" class="add-content" placeholder="Enter Content" ></textarea>
 
-            <input type="file" id="upload" name="image" hidden/>
+            <input type="file" id="upload" name="image" accept="image/jpeg, image/png" hidden/>
             <label for="upload" class="image-upload"><i class='bx bx-image-add add-image'></i><span>Select Image</span></label>
 
             <input type="submit" name="submit" id="submitPost" value="Post">
